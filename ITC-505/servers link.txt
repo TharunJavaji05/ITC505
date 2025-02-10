@@ -1,9 +1,0 @@
-https://webtech.z13.web.core.windows.net/
-https://webtech-secondary.z13.web.core.windows.net/
-
-
-azure link
-https://webtech.z13.web.core.windows.net/
-
-GitHub link
-https://tharunjavaji05.github.io/ITC-505/hw1.html
