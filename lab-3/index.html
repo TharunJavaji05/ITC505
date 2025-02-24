@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+    <title>ITC505 Lab 3 - Custom Font Delivery</title>
+
+   
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <style>
+       
+        body {
+            font-family: 'Press Start 2P', cursive; 
+            background-color: #000;
+            color: #00ff00; 
+            text-align: center;
+            padding: 20px;
+        }
+
+        
+        h1 {
+            font-size: 2em; 
+            color: #ffcc00; 
+            text-shadow: 3px 3px 4px black; 
+        }
+
+        /* Styling for paragraphs */
+        p {
+            font-size: 1.2em; 
+            max-width: 800px; 
+            margin: 20px auto; 
+            line-height: 1.6; 
+            text-shadow: 2px 2px 3px black; 
+        }
+
+        
+        footer {
+            margin-top: 40px;
+            font-size: 1em;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>Delivering Custom Fonts in Websites</h1>
+    
+    Web developers choose custom fonts as a tool for website design enhancement. The need exists to provide proper delivery methods because devices do not support every font available.
+
+    Google Fonts provide an easy way for website integration of custom fonts as demonstrated in the following example. The method enables direct font delivery through Google server links which point to stylesheet content.
+
+    Web developers can implement self-hosted fonts by uploading their files to the website host server before using the CSS '@font-face' rule for application. Having more control calls for additional setup configuration.
+
+    
+
+    <footer>
+        <p>Last updated: <span id="lastModified"></span></p>
+    </footer>
+
+    <script>
+        
+        document.getElementById('lastModified').textContent = document.lastModified;
+    </script>
+</body>
+</html>
