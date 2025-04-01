@@ -46,7 +46,7 @@ const storyData = {
     darkFall: {
         text: " <strong>Endless Abyss</strong><br>The ground vanishes beneath you! You fall through infinite darkness as whispering voices fade above...",
         choices: [],
-        image: "images/pit_fall.jpeg"
+        image: "images/pit_fall.png"
     },
     torchLit: {
         text: " <strong>Ancient Writings</strong><br>Your torch reveals holographic symbols floating in the air, forming an intricate map of the temple...",
