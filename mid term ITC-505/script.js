@@ -2,10 +2,10 @@ document.getElementById('lastModified').textContent = document.lastModified;
 
 const storyData = {
     start: {
-        text: "🌠 <strong>The Neon Temple</strong> stands before you, its entrance pulsing with cosmic energy. Two glowing pathways diverge before you...",
+        text: " <strong>The Neon Temple</strong> stands before you, its entrance pulsing with cosmic energy. Two glowing pathways diverge before you...",
         choices: [
-            { text: "💜 Violet Path - Humming with strange energy", next: "leftPassage" },
-            { text: "💛 Golden Path - Warm light beckons", next: "rightPassage" }
+            { text: " Violet Path - Humming with strange energy", next: "leftPassage" },
+            { text: " Golden Path - Warm light beckons", next: "rightPassage" }
         ],
         image: "images/download.jpeg"
     },
@@ -20,8 +20,8 @@ const storyData = {
     rightPassage: {
         text: "✨ <strong>Hall of Golden Guardians</strong><br>Massive statues with jeweled eyes watch your every move. Their surfaces ripple like liquid metal...",
         choices: [
-            { text: "🔍 Examine the guardians", next: "statueTrap" },
-            { text: "🚶‍♂️ Move cautiously forward", next: "hiddenDoor" }
+            { text: " Examine the guardians", next: "statueTrap" },
+            { text: " Move cautiously forward", next: "hiddenDoor" }
         ],
         image: "images/golden_hall.png"
     },
@@ -33,70 +33,70 @@ const storyData = {
     hiddenDoor: {
         text: "🚪 <strong>Hidden Chamber</strong><br>Behind a cascading waterfall of light, you find a door covered in glowing runes. It hums with power...",
         choices: [
-            { text: "🧭 Decipher the runes", next: "treasureRoom" },
-            { text: "🔙 Retreat to entrance", next: "start" }
+            { text: " Decipher the runes", next: "treasureRoom" },
+            { text: " Retreat to entrance", next: "start" }
         ],
         image: "images/hidden_door.png"
     },
     treasureRoom: {
-        text: "🏆 <strong>Cosmic Relic Found!</strong><br>Before you floats the legendary artifact, pulsing with the energy of a thousand stars!",
+        text: " <strong>Cosmic Relic Found!</strong><br>Before you floats the legendary artifact, pulsing with the energy of a thousand stars!",
         choices: [],
         image: "images/treasure.png"
     },
     darkFall: {
-        text: "🕳️ <strong>Endless Abyss</strong><br>The ground vanishes beneath you! You fall through infinite darkness as whispering voices fade above...",
+        text: " <strong>Endless Abyss</strong><br>The ground vanishes beneath you! You fall through infinite darkness as whispering voices fade above...",
         choices: [],
         image: "images/pit_fall.jpeg"
     },
     torchLit: {
-        text: "🔆 <strong>Ancient Writings</strong><br>Your torch reveals holographic symbols floating in the air, forming an intricate map of the temple...",
+        text: " <strong>Ancient Writings</strong><br>Your torch reveals holographic symbols floating in the air, forming an intricate map of the temple...",
         choices: [
-            { text: "🗺️ Follow the map", next: "symbolPath" },
-            { text: "❌ Ignore the signs", next: "trappedForever" }
+            { text: "Follow the map", next: "symbolPath" },
+            { text: " Ignore the signs", next: "trappedForever" }
         ],
         image: "images/ancient_symbol.png"
     },
     trappedForever: {
-        text: "⛓️ <strong>Sealed Fate</strong><br>With a terrible grinding sound, the walls close in permanently. Your torch flickers out...",
+        text: " <strong>Sealed Fate</strong><br>With a terrible grinding sound, the walls close in permanently. Your torch flickers out...",
         choices: [],
         image: "images/trapped.png"
     },
     symbolPath: {
-        text: "🧭 <strong>Relic Chamber</strong><br>The map leads you to a floating platform where the artifact spins slowly in a beam of celestial light...",
+        text: " <strong>Relic Chamber</strong><br>The map leads you to a floating platform where the artifact spins slowly in a beam of celestial light...",
         choices: [
-            { text: "🫳 Grab it quickly", next: "relicCollapse" },
-            { text: "🧐 Study first", next: "guardianPuzzle" }
+            { text: " Grab it quickly", next: "relicCollapse" },
+            { text: " Study first", next: "guardianPuzzle" }
         ],
         image: "images/relic.png"
     },
     relicCollapse: {
-        text: "💢 <strong>Temple Collapse!</strong><br>The moment you touch the relic, the entire structure begins crumbling around you!",
+        text: " <strong>Temple Collapse!</strong><br>The moment you touch the relic, the entire structure begins crumbling around you!",
         choices: [],
         image: "images/temple_collapse.png"
     },
     guardianPuzzle: {
-        text: "🧩 <strong>Final Challenge</strong><br>A spectral guardian materializes, projecting a complex puzzle in the air before you...",
+        text: " <strong>Final Challenge</strong><br>A spectral guardian materializes, projecting a complex puzzle in the air before you...",
         choices: [
-            { text: "🧠 Solve the puzzle", next: "wiseExplorer" },
-            { text: "🏃‍♂️ Grab and run", next: "relicCollapse" }
+            { text: " Solve the puzzle", next: "wiseExplorer" },
+            { text: " Grab and run", next: "relicCollapse" }
         ],
         image: "images/guardian.png"
     },
     wiseExplorer: {
-        text: "🎉 <strong>Victory!</strong><br>You solve the puzzle! The guardian bows and vanishes, leaving the relic floating safely in your reach...",
+        text: " <strong>Victory!</strong><br>You solve the puzzle! The guardian bows and vanishes, leaving the relic floating safely in your reach...",
         choices: [
-            { text: "⚡ Harness its power", next: "powerfulExplorer" },
-            { text: "💰 Sell to collectors", next: "richExplorer" }
+            { text: " Harness its power", next: "powerfulExplorer" },
+            { text: " Sell to collectors", next: "richExplorer" }
         ],
         image: "images/safe_escape.png"
     },
     powerfulExplorer: {
-        text: "🔮 <strong>Cosmic Ascension</strong><br>The relic bonds with you, granting abilities beyond human comprehension!",
+        text: " <strong>Cosmic Ascension</strong><br>The relic bonds with you, granting abilities beyond human comprehension!",
         choices: [],
         image: "images/powerful.jpg"
     },
     richExplorer: {
-        text: "💎 <strong>Life of Luxury</strong><br>The relic fetches enough wealth to buy a small planet. You retire in spectacular fashion!",
+        text: " <strong>Life of Luxury</strong><br>The relic fetches enough wealth to buy a small planet. You retire in spectacular fashion!",
         choices: [],
         image: "images/rich.png"
     }
