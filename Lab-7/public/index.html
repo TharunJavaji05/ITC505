@@ -32,7 +32,7 @@
       const data = Object.fromEntries(formData);
 
       // Correct backend URL
-      const res = await fetch("https://lab-7-backend.onrender.com/madlib", {
+      const res = await fetch("https://lab-7-backend.onrender.com/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
