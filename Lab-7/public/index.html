@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mad Lib Game</title>
+</head>
+<body>
+  <h1>Let's Play Mad Libs!</h1>
+  <form id="madlibForm">
+    <label>Adjective: <input type="text" name="adjective" required /></label><br/>
+    <label>Noun: <input type="text" name="noun" required /></label><br/>
+    <label>Verb (past tense): <input type="text" name="verb" required /></label><br/>
+    <label>Place: <input type="text" name="place" required /></label><br/>
+    <label>Plural Noun: <input type="text" name="pluralnoun" required /></label><br/>
+    <button type="submit">Submit</button>
+  </form>
+
+  <div id="result"></div>
+
+  <footer>
+    <p>Last updated: <span id="lastModified"></span></p>
+  </footer>
+  <script>
+    document.getElementById("lastModified").textContent = document.lastModified;
+
+    const form = document.getElementById("madlibForm");
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData);
+
+      const res = await fetch("https://your-render-backend.onrender.com/madlib", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      const text = await res.text();
+      document.getElementById("result").innerHTML = text;
+    });
+  </script>
+</body>
+</html>
