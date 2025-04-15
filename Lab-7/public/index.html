@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mad Lib Game</title>
-  <form action="https://lab-7-backend.onrender.com/submit" method="POST">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -32,7 +31,8 @@
       const formData = new FormData(form);
       const data = Object.fromEntries(formData);
 
-      const res = await fetch("https://your-render-backend.onrender.com/madlib", {
+      // Correct backend URL
+      const res = await fetch("https://lab-7-backend.onrender.com/madlib", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
