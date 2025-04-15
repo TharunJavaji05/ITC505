@@ -25,6 +25,10 @@ app.post('/madlib', (req, res) => {
   res.send(madLib);
 });
 
+app.get("/", (req, res) => {
+  res.send("Server is running and ready to receive requests!");
+});
+
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
