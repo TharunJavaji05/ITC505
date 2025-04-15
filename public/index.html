@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mad Lib - ITC505 Lab 7</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <h1>Mad Lib Generator</h1>
+  <form method="POST" action="/ITC505/lab-7/">
+    <label for="name">Enter a name:</label>
+    <input type="text" id="name" name="name" required />
+
+    <label for="adjective">Enter an adjective:</label>
+    <input type="text" id="adjective" name="adjective" required />
+
+    <label for="noun">Enter a noun:</label>
+    <input type="text" id="noun" name="noun" required />
+
+    <label for="verb">Enter a verb:</label>
+    <input type="text" id="verb" name="verb" required />
+
+    <label for="place">Enter a place:</label>
+    <input type="text" id="place" name="place" required />
+
+    <button type="submit">Generate Story</button>
+  </form>
+
+  <footer>
+    <p>Last updated: 
+        <span id="lastModified"></span>
+    </p>
+  </footer>
+  
+  <script type="text/javascript">
+    var x = document.lastModified;
+    document.getElementById('lastModified').textContent = x;
+  </script> 
+
+  <script src="script.js"></script>
+
+  <!-- Addendum Section -->
+  <section>
+    <h2>Addendum</h2>
+    <p><strong>Purpose:</strong> The purpose of this project is to create a Mad Lib Generator that allows users to input different types of words (e.g., name, adjective, noun, verb, and place) to generate a fun and personalized story.</p>
+
+    <p><strong>Implementation Details:</strong></p>
+    <ul>
+      <li><strong>HTML Structure:</strong> A simple form is used to collect five pieces of user input (name, adjective, noun, verb, place). The form is submitted to the server using a POST request.</li>
+      <li><strong>Server-Side Handling:</strong> The form submission is processed by the ExpressJS server. The server dynamically generates a Mad Lib story by inserting the user's inputs into a predefined story template.</li>
+      <li><strong>CSS Styling:</strong> Basic CSS is applied to style the form and the page to ensure it is user-friendly and easy to navigate.</li>
+      <li><strong>JavaScript Functionality:</strong> A small JavaScript script is used to display the last modified date of the page. The form does not use client-side validation, relying on server-side checks to ensure that all fields are filled.</li>
+    </ul>
+
+    <p><strong>Challenges:</strong></p>
+    <ul>
+      <li>Ensuring that all input fields are filled before generating the story.</li>
+      <li>Making sure the form submits correctly to the server and displays the generated story.</li>
+    </ul>
+
+    <p><strong>Future Enhancements:</strong></p>
+    <ul>
+      <li><strong>Client-Side Validation:</strong> Add JavaScript to validate the form fields before submission.</li>
+      <li><strong>Interactive Features:</strong> Allow users to choose different genres or themes for the Mad Lib.</li>
+    </ul>
+
+    <p><strong>Conclusion:</strong> This project demonstrates how to handle form submissions, process user input, and dynamically generate content on the server-side using ExpressJS.</p>
+  </section>
+</body>
+</html>
