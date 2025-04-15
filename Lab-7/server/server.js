@@ -5,11 +5,11 @@ const app = express();
 // Middleware to parse form data (URL encoded form data)
 app.use(express.urlencoded({ extended: true }));
 
-// Serve static files from the "public" folder
-const publicPath = path.join(__dirname, 'public'); // Ensure "public" is correctly located
+// Serve static files from the "public" folder (located at the root of your project)
+const publicPath = path.join(__dirname, '..', 'public'); // Go up one level to find the "public" folder
 app.use(express.static(publicPath));
 
-// Route to serve the index.html file when accessing "/"
+// Route to serve index.html when accessing "/"
 app.get('/', (req, res) => {
   res.sendFile(path.join(publicPath, 'index.html'));
 });
