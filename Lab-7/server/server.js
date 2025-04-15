@@ -1,46 +1,41 @@
 const express = require('express');
+const logger = require('morgan');
 const path = require('path');
-const app = express();
+const server = express();
 
-// Middleware to parse form data
-app.use(express.urlencoded({ extended: true }));
+server.use(express.urlencoded({ extended: true }));
+server.use(logger('dev'));
 
-// Serve static files from "../public"
+// Serve static files from the ../public directory
 const publicPath = path.join(__dirname, '..', 'public');
-app.use(express.static(publicPath));
+server.use(express.static(publicPath));
 
-// Route to serve index.html when accessing "/"
-app.get('/', (req, res) => {
-  res.sendFile(path.join(publicPath, 'index.html'));
-});
-
-// POST route for Mad Lib submission
-app.post('/submit', (req, res) => {
+// POST route to handle the Mad Lib form
+server.post('/submit', (req, res) => {
   const { noun, verb, adjective, place, animal } = req.body;
 
   if (!noun || !verb || !adjective || !place || !animal) {
     return res.send(`
       <h1>Submission Failed</h1>
-      <p>Please fill out ALL fields</p>
-      <a href="/">Go Back to Form</a>
+      <p>Please fill out ALL fields.</p>
+      <a href="/">Go Back</a>
     `);
   }
 
-  const story = `
-    Once upon a time in ${place}, there lived a ${adjective} ${animal}.<br>
-    Every day, it would ${verb} around and play with a ${noun}.<br>
-    They lived happily ever after!
+  const madLib = `
+    One day, a ${adjective} ${animal} went to the ${place} to ${verb} a ${noun}.
+    It was the best day ever!
   `;
 
   res.send(`
-    <h1>Your Mad Lib</h1>
-    <p>${story}</p>
-    <a href="/">Go Back to Form</a>
+    <h1>Here's Your Mad Lib!</h1>
+    <p>${madLib}</p>
+    <a href="/">Go Back</a>
   `);
 });
 
-// Use the port provided by Render or default to 8080 locally
+// Start the server
 const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
