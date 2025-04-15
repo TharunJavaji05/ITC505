@@ -24,24 +24,33 @@
   </footer>
 
   <script>
+    // Display last modified date
     document.getElementById("lastModified").textContent = document.lastModified;
 
     const form = document.getElementById("madlibForm");
+
+    // Form submission handling
     form.addEventListener("submit", async (e) => {
-      e.preventDefault();
+      e.preventDefault(); // Prevent form from submitting traditionally
       const formData = new FormData(form);
-      const data = Object.fromEntries(formData);
+      const data = Object.fromEntries(formData); // Convert form data to JSON
 
-      // Send the data to the backend (correct backend URL for submission)
-      const res = await fetch("https://lab-7-backend.onrender.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
+      try {
+        // Send data to backend
+        const res = await fetch("https://lab-7-backend.onrender.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
 
-      // Get the response from the backend and display it
-      const text = await res.text();
-      document.getElementById("result").innerHTML = text;
+        // Get and display the response from the backend
+        const text = await res.text();
+        document.getElementById("result").innerHTML = text;
+      } catch (error) {
+        // Handle errors gracefully
+        document.getElementById("result").innerHTML = "There was an error submitting your form. Please try again.";
+        console.error(error);
+      }
     });
   </script>
 </body>
