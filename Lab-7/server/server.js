@@ -1,13 +1,15 @@
 const express = require('express');
 const path = require('path');
+const cors = require('cors'); // CORS middleware to handle cross-origin requests
 const app = express();
 
 // Middleware to parse JSON and URL-encoded form data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors()); // Enable CORS for frontend-backend communication
 
-// Serve static files from the "public" folder (located at the root of your project)
-const publicPath = path.join(__dirname, '..', 'public'); // Go up one level to find the "public" folder
+// Serve static files from the "public" folder
+const publicPath = path.join(__dirname, '..', 'public');
 app.use(express.static(publicPath));
 
 // Route to serve index.html when accessing "/"
@@ -15,11 +17,11 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(publicPath, 'index.html'));
 });
 
-// POST route to handle Mad Lib form submission
+// POST route for Mad Lib form submission
 app.post('/submit', (req, res) => {
   const { noun, verb, adjective, place, animal } = req.body;
 
-  // If any field is missing, return an error message
+  // Check if any required field is missing
   if (!noun || !verb || !adjective || !place || !animal) {
     return res.send(`
       <h1>Submission Failed</h1>
