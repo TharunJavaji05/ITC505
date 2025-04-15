@@ -3,8 +3,9 @@ const logger = require('morgan');
 const cors = require('cors');
 const app = express();
 
-app.use(logger('dev'));
+// Allow all origins for simplicity (you can restrict it later)
 app.use(cors());
+app.use(logger('dev'));
 app.use(express.json());
 
 app.post('/madlib', (req, res) => {
