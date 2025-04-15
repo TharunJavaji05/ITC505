@@ -4,26 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mad Lib Game</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <h1>Let's Play Mad Libs!</h1>
   <form id="madlibForm">
-    <label>Adjective:
-      <input type="text" name="adjective" required />
-    </label><br />
-    <label>Noun:
-      <input type="text" name="noun" required />
-    </label><br />
-    <label>Verb (past tense):
-      <input type="text" name="verb" required />
-    </label><br />
-    <label>Place:
-      <input type="text" name="place" required />
-    </label><br />
-    <label>Plural Noun:
-      <input type="text" name="pluralnoun" required />
-    </label><br />
+    <label>Adjective: <input type="text" name="adjective" required /></label><br/>
+    <label>Noun: <input type="text" name="noun" required /></label><br/>
+    <label>Verb (past tense): <input type="text" name="verb" required /></label><br/>
+    <label>Place: <input type="text" name="place" required /></label><br/>
+    <label>Animal: <input type="text" name="animal" required /></label><br/>
     <button type="submit">Submit</button>
   </form>
 
@@ -42,19 +32,18 @@
       const formData = new FormData(form);
       const data = Object.fromEntries(formData);
 
-      try {
-        const res = await fetch("https://lab-7-backend.onrender.com/madlib", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data),
-        });
+      // Send the data to the backend (replace with your deployed URL)
+      const res = await fetch("https://lab-7-backend.onrender.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
 
-        const text = await res.text();
-        document.getElementById("result").innerHTML = text;
-      } catch (error) {
-        document.getElementById("result").innerHTML =
-          "<p style='color: red;'>There was an error submitting the form. Please try again.</p>";
-      }
+      // Get the result from the backend
+      const text = await res.text();
+
+      // Display the result in the "result" div
+      document.getElementById("result").innerHTML = text;
     });
   </script>
 </body>
