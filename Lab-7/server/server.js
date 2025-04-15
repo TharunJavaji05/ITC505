@@ -1,41 +1,51 @@
 const express = require('express');
 const logger = require('morgan');
-const path = require('path');
-const server = express();
+const cors = require('cors');
+const app = express();
 
-server.use(express.urlencoded({ extended: true }));
-server.use(logger('dev'));
+// Enable logging for development
+app.use(logger('dev'));
 
-// Serve static files from the ../public directory
-const publicPath = path.join(__dirname, '..', 'public');
-server.use(express.static(publicPath));
+// CORS setup (replace the origin URL with your GitHub Pages URL)
+const corsOptions = {
+  origin: "https://tharunjavaji05.github.io/ITC505/Lab-7/public/index.html",
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type"],
+};
+app.use(cors(corsOptions));
 
-// POST route to handle the Mad Lib form
-server.post('/submit', (req, res) => {
-  const { noun, verb, adjective, place, animal } = req.body;
+// Middleware to parse JSON bodies
+app.use(express.json());
 
-  if (!noun || !verb || !adjective || !place || !animal) {
+// POST route to handle Mad Lib form submission
+app.post('/madlib', (req, res) => {
+  const { adjective, noun, verb, place, pluralnoun } = req.body;
+
+  // Validate that all fields are filled
+  if (!adjective || !noun || !verb || !place || !pluralnoun) {
     return res.send(`
-      <h1>Submission Failed</h1>
-      <p>Please fill out ALL fields.</p>
-      <a href="/">Go Back</a>
+      <h2>Submission Failed</h2>
+      <p>Please fill out all fields!</p>
     `);
   }
 
+  // Generate the Mad Lib story
   const madLib = `
-    One day, a ${adjective} ${animal} went to the ${place} to ${verb} a ${noun}.
-    It was the best day ever!
+    <h2>Here’s Your Story!</h2>
+    <p>Once upon a time, in a <strong>${adjective}</strong> ${place}, there lived a ${noun} who loved to ${verb} with ${pluralnoun}.</p>
   `;
 
-  res.send(`
-    <h1>Here's Your Mad Lib!</h1>
-    <p>${madLib}</p>
-    <a href="/">Go Back</a>
-  `);
+  // Send the generated story back as the response
+  res.send(madLib);
 });
 
-// Start the server
-const PORT = process.env.PORT || 8080;
-server.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+// Route for testing server status
+app.get("/", (req, res) => {
+  res.send("Server is running and ready to receive requests!");
+});
+
+// Set the port and start the server
+const port = process.env.PORT || 8080;
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });
