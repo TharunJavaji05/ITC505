@@ -32,17 +32,15 @@
       const formData = new FormData(form);
       const data = Object.fromEntries(formData);
 
-      // Send the data to the backend (replace with your deployed URL)
+      // Send the data to the backend (correct backend URL for submission)
       const res = await fetch("https://lab-7-backend.onrender.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
 
-      // Get the result from the backend
+      // Get the response from the backend and display it
       const text = await res.text();
-
-      // Display the result in the "result" div
       document.getElementById("result").innerHTML = text;
     });
   </script>
