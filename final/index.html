@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Revenge of Lights Out</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Revenge of Lights Out</h1>
+  <div id="gameBoard"></div>
+  <section id="addendum" style="max-width: 700px; margin: 40px auto; font-family: sans-serif;">
+    <h2>Addendum</h2>
+    <p>
+        The project required me to construct playable "Lights Out" game logic through the combination of HTML and CSS with JavaScript.
+        The first step was designing a 5x5 grid in which I implemented logic for square toggling with neighbor activation during clicks.
+        I ran computer-generated random legal moves through simulations on blank boards in order to make sure the game was capable of being solved.
+    </p>
+    <p>
+     The application benefits from CSS Grid layout system with basic stylistic elements along with hover and transition effects to simplify the user experience.
+     The solution to edge cases during neighbor toggling required boundary checks when I encountered this challenge.
+  
+    </p>
+    <p>
+     The project deepened my comprehension of using DOM manipulation and event handling and developing interactive features in JavaScript.
+    </p>
+  </section>
+  
+  <footer>
+    <p>Last updated: <span id="lastModified"></span></p>
+  </footer>
+  
+  <script>
+    var x = document.lastModified;
+    document.getElementById('lastModified').textContent = x;
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
